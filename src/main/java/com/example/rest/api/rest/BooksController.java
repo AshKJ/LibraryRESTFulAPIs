@@ -32,7 +32,7 @@ public class BooksController {
     }
 
     @Operation(summary = "Adds the book to the library")
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addBook(final Book book) {
         library.addBook(book);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -67,7 +67,7 @@ public class BooksController {
     }
 
     @Operation(summary = "Reserves a book for given ISBN number")
-    @PostMapping(value = "/borrow/{isbn}")
+    @PutMapping(value = "/borrow/{isbn}")
     public ResponseEntity<Book> borrowBook(@PathVariable String isbn) {
         try {
             return new ResponseEntity<>(library.borrowBook(isbn), HttpStatus.OK);
@@ -77,7 +77,7 @@ public class BooksController {
     }
 
     @Operation(summary = "Returns a book for given ISBN number to the library")
-    @PostMapping(value = "/return/{isbn}")
+    @PutMapping(value = "/return/{isbn}")
     public ResponseEntity<Book> returnBook(@PathVariable String isbn) {
         try {
             return new ResponseEntity<>(library.returnBook(isbn), HttpStatus.OK);

@@ -9,7 +9,7 @@ The books are identified by ISBN number and`{isbn}` is the entity identifier
 
 The application provides below endpoints
 
-- `PUT` at `/api/v1/books` which 
+- `POST` at `/api/v1/books` which 
   - Saves a new book with the posted book data in the library
   - Return `201 Created` if the book is successfully created
 
@@ -26,12 +26,12 @@ The application provides below endpoints
   - Returns all books in the library for given `{author}` name in case insensitive manner
   - Returns empty list if books for given `{author}` doesn't exist
   
-- `POST` at `/api/v1/books/borrow/{isbn}` which 
+- `PUT` at `/api/v1/books/borrow/{isbn}` which 
   - Saves a new book with the posted book data in the library
   - Return `200 Success` if the book is successfully borrowed from the library
   - Return `404 Not Found` if the book with given ISBN doesn't exist
 
-- `POST` at `/api/v1/books/return/{isbn}` which 
+- `PUT` at `/api/v1/books/return/{isbn}` which 
   - Saves a new book with the posted book data in the library
   - Return `200 Success` if the book is successfully returned to the library
   - Return `404 Not Found` if the book with given ISBN doesn't exist

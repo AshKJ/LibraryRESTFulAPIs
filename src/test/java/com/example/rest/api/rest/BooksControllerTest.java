@@ -52,7 +52,7 @@ class BooksControllerTest {
         doNothing().when(library).addBook(any());
 
         // when book data is posted it should be successfully created
-        mockMvc.perform(put("/api/v1/books")
+        mockMvc.perform(post("/api/v1/books")
                 .content(TestDataUtil.getDefaultBookContent())
                 .contentType(APPLICATION_JSON)
                 .accept(APPLICATION_JSON))
@@ -109,13 +109,13 @@ class BooksControllerTest {
         when(library.borrowBook(any())).thenReturn(book);
 
         // then both borrow and return should be successful
-        mockMvc.perform(post("/api/v1/books/borrow/ISBN001")
+        mockMvc.perform(put("/api/v1/books/borrow/ISBN001")
                 .content(bookContent)
                 .contentType(APPLICATION_JSON)
                 .accept(APPLICATION_JSON))
             .andExpect(status().isOk());
 
-        mockMvc.perform(post("/api/v1/books/return/ISBN001")
+        mockMvc.perform(put("/api/v1/books/return/ISBN001")
                 .content(bookContent)
                 .contentType(APPLICATION_JSON)
                 .accept(APPLICATION_JSON))
