@@ -31,7 +31,7 @@ The application provides below endpoints
   - Return `200 Success` if the book is successfully borrowed from the library
   - Return `404 Not Found` if the book with given ISBN doesn't exist
 
-- `POST` at `/api/v1/books/RETURN/{isbn}` which 
+- `POST` at `/api/v1/books/return/{isbn}` which 
   - Saves a new book with the posted book data in the library
   - Return `200 Success` if the book is successfully returned to the library
   - Return `404 Not Found` if the book with given ISBN doesn't exist
